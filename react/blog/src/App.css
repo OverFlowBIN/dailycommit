@@ -25,6 +25,42 @@ body {
   padding-right: 20px;
 }
 
+.modal {
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px;
+  width: 80%;
+  background-color: #eee;
+}
+
+.publish {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.publish input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 80%;
+  border: 1px solid gray;
+}
+
+.publish button {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.oldCompo {
+  padding: 10px;
+  font-size: 20px;
+  background-color: gray;
+  border-radius: 10px;
+  width: 50%;
+  margin: auto;
+  margin-top: 50px;
+}
 
 
 .App-logo {
