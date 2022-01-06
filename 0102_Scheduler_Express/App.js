@@ -1,5 +1,5 @@
 // node.js, Express를 이용한 sheduler 만들기
-  // npm : node-schedule( https://www.npmjs.com/package/node-schedule )
+  //12 npm : node-schedule( https://www.npmjs.com/package/node-schedule )
 
 const express = require('express');
 const app = express();
