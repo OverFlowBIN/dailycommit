@@ -14,43 +14,18 @@
 
 
 // solve.1
-function readVertically(arr) {
-  let result = '';
-  let maxLen = 0;
-
-  for(let i = 0; i < arr.length; i++) {
-    if(maxLen < arr[i].length) maxLen = arr[i].length;
-  }
-  
-  for(let i = 0; i < maxLen; i++) {
-    for(let j = 0; j < arr.length; j++) {
-      if(arr[j][i]) result += arr[j][i];
-      else continue;
-    }
-  }
-
-  return result;
-}
-
-
-
-// solve.2
 // function readVertically(arr) {
-//   let maxLength = 0;
 //   let result = '';
+//   let maxLen = 0;
 
-//   for (let i = 0; i < arr.length; i++) {
-//     if (maxLength < arr[i].length) {
-//       maxLength = arr[i].length;
-//     }
+//   for(let i = 0; i < arr.length; i++) {
+//     if(maxLen < arr[i].length) maxLen = arr[i].length;
 //   }
   
-//   for (let i = 0; i < maxLength; i++) {
-//     for (let j = 0; j < arr.length; j++) {
-//       if (arr[j][i] === undefined) {
-//         continue;
-//       }
-//       result += arr[j][i];
+//   for(let i = 0; i < maxLen; i++) {
+//     for(let j = 0; j < arr.length; j++) {
+//       if(arr[j][i]) result += arr[j][i];
+//       else continue;
 //     }
 //   }
 
@@ -59,9 +34,58 @@ function readVertically(arr) {
 
 
 
+// solve.2
+function readVertically(arr) {
+  let maxLength = 0;
+  let result = '';
+
+  for (let i = 0; i < arr.length; i++) {
+    if (maxLength < arr[i].length) {
+      maxLength = arr[i].length;
+    }
+  }
+  
+  for (let i = 0; i < maxLength; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j][i] === undefined) {
+        continue;
+      }
+      result += arr[j][i];
+    }
+  }
+
+  return result;
+}
+
+
+
+// solve.3
+function readVertically(arr) {
+  let itemLength = arr[0].length; // itemLength를 배열의 첫 번째 요소의 길이로 설정한다.
+  let newString = '';
+  arr.forEach((item) => {
+    if(item.length > itemLength){ // itemLength보다 더 긴 
+      itemLength = item.length; // 배열의 요소가 있으면 그 길이가 itemLength가 된다.
+    }
+  })
+
+  for (let i = 0; i < itemLength; i++){
+    let part = '';
+    for (let j = 0; j < arr.length; j++){
+      if (arr[j][i] === undefined){ // 가장 긴 배열의 요소보다 짧은 요소의 빈 부분은 ''가 된다.
+        part += '';
+      } else {
+        part += arr[j][i];
+      }      
+    }
+    newString += part;
+  }
+  return newString;
+}
+
+
 // 입출력 예시
 let input = [
-  //
   'hello',
   'wolrd',
 ];
@@ -69,7 +93,6 @@ let output = readVertically(input);
 console.log(output); // --> 'hweolllrod'
 
 input = [
-  //
   'hi',
   'wolrd',
 ];
