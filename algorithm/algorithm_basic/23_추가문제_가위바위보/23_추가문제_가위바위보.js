@@ -30,7 +30,7 @@ function solution (n, a, b) {
     if(a[i] === b[i]) result.push('D')
   }
   return result;
-}
+}영
 
 
 
