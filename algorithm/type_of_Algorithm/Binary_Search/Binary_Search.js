@@ -21,7 +21,7 @@ console.log('result of search :', search(7, values))
 // 경과 시간이 계속 반으로 줄기 때문에 시간 복잡도가 O(logN)이다
 const binary = (val, arr) => {
   let lower = 0;
-  let upper = arr.length - 1
+  let upper = arr.length - 1;
 
   while(lower <= upper) {
     console.log('try find result(binary)')

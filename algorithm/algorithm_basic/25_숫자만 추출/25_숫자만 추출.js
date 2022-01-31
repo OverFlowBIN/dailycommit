@@ -11,9 +11,8 @@ function solution(str) {
   for(let i = 0; i < str.length; i++) {
     if(!isNaN(str[i])) result += str[i];
   }
-  return +result;
+  return parseInt(result);
 }
-
 
 
 
