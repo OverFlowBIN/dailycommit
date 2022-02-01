@@ -39,7 +39,7 @@ function solution(arr1, arr2) {
     if(arr1[p1] <= arr2[p2]) result.push(arr1[p1++]);
     else result.push(arr2[p2++])
   }
-  console.log(p1, n, p2, m, resu)
+  // console.log(p1, n, p2, m, result)
   while(p1 < n) result.push(arr1[p1++])
   while(p2 < m) result.push(arr2[p2++])
   return result;
