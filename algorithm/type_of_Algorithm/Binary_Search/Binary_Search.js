@@ -1,5 +1,7 @@
 // Binary_Search Algorithm
 // 이진 검색이 작동하려면 우선 정렬되어있어야 한다.
+// array.prototype.sort()의 시간 복잡도는 O(nlog(n))
+
 
 
 // 반복문을 이용한 기본적인 탐색은 모든 값을 탐색하는 최악의 경우가 있고,
@@ -41,7 +43,7 @@ const binary = (val, arr) => {
   return -1;
 }
 
-values = [ 4, 5, 6, 7, 8, 9, 10]
+values = [4, 5, 6, 7, 8, 9, 10]
 console.log('result of binary :', binary(7, values))
 
 
@@ -73,10 +75,6 @@ console.log('result of binary :', binary(7, values))
 // 200
 
 
-// 힌트
-// 802cm 랜선에서 4개, 743cm 랜선에서 3개, 457cm 랜선에서 2개, 539cm 랜선에서 2개를 잘라내 모두 11개를 만들 수 있다.
-
-
 // 풀기 과정
 // left = 0, right = 랜선의 최대 길이
 // 중간값(mid) 길이로 랜선이 몇개 나오는지 계산한다.
@@ -90,76 +88,32 @@ let input = [802, 743, 457, 539];
 
 
 
+function countReturn(len, K, input) {
+  let count = 0;
+  for (let i = 0; i < K; i++) {
+    count += parseInt(input[i] / len, 10)
+  }
+  return count;
+}
 
+function solution (K, N, input) {
+  let left = 1;
+  let right = input[K - 1];
 
+  let answer = 0;
+  while (left <= right) {
+    let mid = parseInt((left + right) / 2, 10);
+    let retCount = countReturn(mid, K, input)
+    // console.log(retCount, N);
+    // console.log(left, mid, right);
+    if(retCount >= N) {
+      answer = Math.max(answer, mid);
+      left = mid + 1;
+    } else {
+      right = mid - 1
+    }
+  }
+  console.log(answer)
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function countReturn(len, K, input) {
-//   let count = 0;
-//   for (let i = 0; i < K; i++) {
-//     count += parseInt(input[i] / len, 10)
-//   }
-//   return count;
-// }
-
-// function solution (K, N, input) {
-//   let left = 1;
-//   let right = input[K - 1];
-
-//   let answer = 0;
-//   while (left <= right) {
-//     let mid = parseInt((left + right) / 2, 10);
-//     let retCount = countReturn(mid, K, input)
-//     // console.log(retCount, N);
-//     // console.log(left, mid, right);
-//     if(retCount >= N) {
-//       answer = Math.max(answer, mid);
-//       left = mid + 1;
-//     } else {
-//       right = mid - 1
-//     }
-//   }
-//   console.log(answer)
-// }
-
-// solution(K, N, input);
+solution(K, N, input);
