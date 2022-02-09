@@ -1,5 +1,7 @@
 // INSERTION SORT
 
+// 1, 5, 7, 8, 10, 6, 4, 3, 2, 9
+
 function insertionSort (arr) {
   for(i = 0; i < arr.length; i++) {
     let j = i;
@@ -13,6 +15,51 @@ function insertionSort (arr) {
   }
   return arr;
 }
+
+
+let arr = [1, 10, 5, 8, 7, 6, 4, 3, 2, 9];
+let output = insertionSort(arr);
+console.log(output);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function insertionSort (arr) {
+//   for(i = 0; i < arr.length; i++) {
+//     let j = i;
+//     let temp;
+//     while(arr[j] > arr[j + 1]) {
+//       temp = arr[j]
+//       arr[j] = arr[j + 1]
+//       arr[j + 1] = temp;
+//       j--;
+//     }
+//   }
+//   return arr;
+// }
 
 
 
@@ -51,6 +98,4 @@ function insertionSort (arr) {
 // };
 
 
-let arr = [1, 10, 5, 8, 7, 6, 4, 3, 2, 9];
-let output = insertionSort(arr);
-console.log(output);
+
