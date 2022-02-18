@@ -1,8 +1,6 @@
 // Radix Sort
 // 정수를 요소로 갖는 배열을 입력받아 오름차순으로 정렬하여 리턴해야 합니다.
 // 계수 정렬을 이용하여 문제를 풀어라
-// stable? 정렬안정성이있다.
-
 
 // pesudoCode
 // 십진법 만큼(0 ~ 9) [[], [], [], ...] 이차원 배열 생성(stack)
@@ -15,25 +13,18 @@
 // 100의 자릿수는 100로 나눠 나눈 값을 인덱스로 하여 이차원 배열에 넣는다
   // ...
 
-
 // 해당 배열에서 가장 큰 값의 자릿값 만큼 진행한다
-//1자리
-//  0    1  2   3   4   5   6   7   8   9  
-// [[100], [1, 21], [2], [43], [], [], [], [], [ ], [] ]
-
-// [100, 1, 21, 2, 43]
 
 
 // solve.1 우선 양수만 정리
 function radixSort(arr) {
 
   let sorted = arr;
-
   let stack = Array.from({ length: 10 }, () => []);  // 자리별로 나눠주기
-
+  
   // 가장큰 값의 자릿수 구하기
-  let maxLen = Math.max(...arr).toString().length;
-  // console.log(maxLen);
+  let maxLen = Math.max(...arr).toString().split('').length;
+  console.log(maxLen);
 
   // 가장큰 수의 자릿수 만큼 돌리기
   for(let i = 0; i < maxLen; i++) {
@@ -67,7 +58,6 @@ function radixSort(arr) {
     else positiveArr.push(arr[i])
   }
   
-  
   console.log('negativeArr', negativeArr)
   console.log('positiveArr', positiveArr)
   
@@ -95,8 +85,9 @@ function radixSort(arr) {
     return sorted;
   }
 
-  return [...sorting(negativeArr).reverse().map((item) => item * -1), ...sorting(positiveArr)]
-};
+  return [...(sorting(negativeArr).reverse().map((item) => item * -1)), ...sorting(positiveArr)]
+}
+
 
 
 const arr1 = [1, 2, 43, 100, 21];
