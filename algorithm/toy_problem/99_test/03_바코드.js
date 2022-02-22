@@ -61,28 +61,54 @@ const output3 = test3(board3, 'DDRRRUDUDUD');
 console.log(output3); // 0
 
 
+// function test3(board, operation) {
+//   let [row, col] = [0, 0];
+//   let result = 0;
+
+//   const R = board.length;
+//   const C = board[0].length;
+
+//   const isValid = (x, y) => x >= 0 && x < R && y >= 0 && y < C;
+  
+
+//   for(let i = 0; i < operation.length; i++) {
+//     let prev = [row, col]
+//     if(operation[i] === 'D') row++;
+//     else if(operation[i] === 'U') row--;
+//     else if(operation[i] === 'L') col--;
+//     else if(operation[i] === 'R') col++;
+//     if(isValid(row, col)) {
+//       result += board[row][col];
+//       board[row][col] = 0;
+//     }
+//     else [row, col] = prev;
+//   }
+
+//   return result;
+// }
+
 function test3(board, operation) {
-  let [row, col] = [0, 0];
   let result = 0;
+  let [row, col] = [0, 0];
 
   const R = board.length;
   const C = board[0].length;
 
-  const isValid = (x, y) => x >= 0 && x < R && y >= 0 && y < C;
+  const isValid = (x, y) => x >= 0 && x < R && y >= 0 && y < C
   
-
   for(let i = 0; i < operation.length; i++) {
-    let prev = [row, col]
-    if(operation[i] === 'D') row++;
-    else if(operation[i] === 'U') row--;
+    let cur = [row, col]
+    if(operation[i] === 'U') row--;
+    else if(operation[i] === 'D') row++;
     else if(operation[i] === 'L') col--;
     else if(operation[i] === 'R') col++;
     if(isValid(row, col)) {
       result += board[row][col];
-      board[row][col] = 0;
+      operation[row][col] = 0;
+    } else {
+      [row, col] = cur;
     }
-    else [row, col] = prev;
-  }
 
-  return result;
-}
+    return result;
+  }
+};
