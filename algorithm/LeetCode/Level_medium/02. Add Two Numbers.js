@@ -5,7 +5,7 @@
 // pesudocode
 // [2,4,3] (342) + [5,6,4] (465) => (807) => [7, 0, 8]
 
-var addTwoNumbers = function (l1, l2) {
+var addTwoNumbers1 = function (l1, l2) {
   let num1 = l1.map((el, idx) => el * 10 ** idx).reduce((a, b) => a + b, 0);
   console.log(num1);
   let num2 = l2.map((el, idx) => el * 10 ** idx).reduce((a, b) => a + b, 0);
@@ -16,28 +16,47 @@ var addTwoNumbers = function (l1, l2) {
     .map((el) => Number(el));
   return result;
 };
-
-var addTwoNumbers = function (l1, l2) {
-  let num1 = 0;
-  let num2 = 0;
-
-  for (let i = 0; i < l1.length; i++) {
-    num1 += l1[i] * 10 ** i;
-  }
-
-  for (let i = 0; i < l1.length; i++) {
-    num2 += l2[i] * 10 ** i;
-  }
+var addTwoNumbers2 = function (l1, l2) {
+  let num1 = l1.map((el, idx) => el * 10 ** idx).reduce((a, b) => a + b, 0);
+  console.log(num1);
+  let num2 = l2.map((el, idx) => el * 10 ** idx).reduce((a, b) => a + b, 0);
+  console.log(num2);
   let result = String(num1 + num2)
     .split("")
     .reverse()
     .map((el) => Number(el));
   return result;
 };
+// var addTwoNumbers2 = function (l1, l2) {
+//   let num1 = 0;
+//   let num2 = 0;
+
+//   for (let i = 0; i < l1.length; i++) {
+//     num1 += l1[i] * 10 ** i;
+//   }
+
+//   for (let i = 0; i < l1.length; i++) {
+//     num2 += l2[i] * 10 ** i;
+//   }
+//   let result = String(num1 + num2)
+//     .split("")
+//     .reverse()
+//     .map((el) => Number(el));
+//   return result;
+// };
 
 let l1 = [2, 4, 3],
   l2 = [5, 6, 4];
-console.log(addTwoNumbers(l1, l2));
+
+console.time("label1");
+console.log(addTwoNumbers1(l1, l2));
+
+console.timeEnd("label1");
+
+console.time("label2");
+console.log(addTwoNumbers2(l1, l2));
+
+console.timeEnd("label2");
 
 // Example 1:
 // Input: l1 = [2,4,3], l2 = [5,6,4]
