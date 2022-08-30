@@ -15,24 +15,24 @@
 // 아래의 힌트를 바탕으로 (최선의 경우) 수행 시간을 단축할 수 있도록 코드를 수정해보세요.
 // 위에서 설명된 알고리즘 1~3의 과정 중 어떤 요소도 위치가 바뀌지 않은 경우, 배열이 정렬된 상태라는 것을 알 수 있습니다.
 
-function bubbleSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    let isSorted = true;
-    for (let j = 1; j < arr.length - i; j++) {
-      if (arr[j - 1] > arr[j]) {
-        [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]];
-        isSorted = false;
-      }
-    }
-    if (isSorted) return arr;
-  }
-  return arr;
-}
+// function bubbleSort(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     let isSorted = true;
+//     for (let j = 1; j < arr.length - i; j++) {
+//       if (arr[j - 1] > arr[j]) {
+//         [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]];
+//         isSorted = false;
+//       }
+//     }
+//     if (isSorted) return arr;
+//   }
+//   return arr;
+// }
 
-// 5 4 3 2 1 => 4 5 3 2 1 => ... => 43215
+// // 5 4 3 2 1 => 4 5 3 2 1 => ... => 43215
 
-let output = bubbleSort([5, 4, 3, 2, 1]);
-console.log(output); // --> [1, 2, 3]
+// let output = bubbleSort([5, 4, 3, 2, 1]);
+// console.log(output); // --> [1, 2, 3]
 
 // 이전 답
 
@@ -49,3 +49,19 @@ console.log(output); // --> [1, 2, 3]
 //   }
 //   return arr;
 // };
+
+// one more time
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let isSorted = true;
+    for (let j = 1; j < arr.length - i; j++) {
+      if (arr[j - 1] > arr[j]) [arr[j - 1], arr[j]] = [arr[j], arr[j - 1]];
+      isSorted = false;
+    }
+    if (isSorted) return arr;
+  }
+  return arr;
+}
+
+let output = bubbleSort([5, 4, 3, 2, 1]);
+console.log(output); // --> [1, 2, 3]
